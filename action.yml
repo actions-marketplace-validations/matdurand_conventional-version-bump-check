@@ -1,0 +1,16 @@
+name: 'conventional-version-bump-check'
+description: "Check that the current version matches the version bump required by conventional commit"
+inputs:
+  current-version:
+    description: "The current version of your application"
+    required: true
+  verbose:
+    description: "Display additional logs. True by default."
+    required: false
+    default: "true"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'check-circle'  
+  color: 'green'

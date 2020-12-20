@@ -1,0 +1,30 @@
+{
+  "name": "conventional-version-bump-check",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "Mathieu Durand",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && ncc build",
+    "git-add-all-dists": "git ls-files | grep dist/ | xargs git add"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && npm run git-add-all-dists"
+    }
+  },
+  "dependencies": {
+    "@actions/core": "1.2.6",
+    "@actions/github": "4.0.0",
+    "conventional-commits-parser": "3.2.0",
+    "git-raw-commits": "2.0.8",
+    "lodash": "^4.17.20",
+    "semver": "7.3.4"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.26.1",
+    "husky": "4.3.6",
+    "rimraf": "3.0.2"
+  }
+}
